@@ -72,6 +72,35 @@ ul{padding-left:20px;margin:6px 0}
 .cbtn{font:600 15px system-ui,sans-serif;text-decoration:none;padding:10px 20px;border-radius:8px;border:1.5px solid var(--accent);color:var(--accent)}
 .cbtn.primary{background:var(--accent);color:var(--bg)}
 .clist{line-height:1.9}
+.interests{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:22px}
+.icard{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;border-top:4px solid var(--accent);transition:transform .15s,box-shadow .15s}
+.icard:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.08)}
+.icard .ico{font-size:28px;line-height:1;margin-bottom:8px}
+.icard h3{margin-bottom:6px}.icard p{font-size:15.5px;margin:0 0 10px}
+.chips.sm{font-size:13px;gap:6px}.chips.sm li{padding:3px 10px}
+.insts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.inst{display:flex;gap:14px;align-items:center;background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;text-decoration:none;color:var(--fg);font:15px/1.4 system-ui,sans-serif;transition:border-color .15s}
+.inst:hover{border-color:var(--accent)}
+.inst .mono{flex:0 0 52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent);font:700 13px system-ui,sans-serif;letter-spacing:.03em}
+.inst .meta{margin:0}
+@media (max-width:1100px){.interests{grid-template-columns:1fr 1fr}}
+@media (max-width:1000px){.insts{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.interests,.insts{grid-template-columns:1fr}}
+.awards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.agroup{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px;--c:#1f5596;--cs:#e6eef8}
+.agroup.gold{--c:#b7791f;--cs:#fdf3e1}.agroup.teal{--c:#1f8a76;--cs:#e3f5f1}.agroup.blue{--c:#1f5596;--cs:#e6eef8}
+@media (prefers-color-scheme:dark){.agroup.gold{--c:#f0b45a;--cs:#3a2d17}.agroup.teal{--c:#6fd3bd;--cs:#16302b}.agroup.blue{--c:#7fb2ec;--cs:#1a2740}}
+.agroup h3{display:flex;align-items:center;gap:10px;font:700 16px system-ui,sans-serif;margin:0 0 14px;padding-bottom:12px;border-bottom:3px solid var(--c)}
+.agroup h3 span{font-size:22px}
+.tiles{display:flex;flex-direction:column;gap:10px}
+.tile{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:12px;background:var(--cs);transition:transform .15s}
+.tile:hover{transform:translateX(4px)}
+.tic{flex:0 0 38px;height:38px;border-radius:50%;display:grid;place-items:center;background:var(--card);font-size:19px;box-shadow:0 2px 6px rgba(0,0,0,.08)}
+.tile div{flex:1;font:14.5px/1.35 system-ui,sans-serif}.tile b{display:block}
+.tsub{color:var(--muted);font-size:13px}
+.yr{font:700 12px system-ui,sans-serif;color:var(--c);white-space:nowrap}
+@media (max-width:1000px){.awards{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.awards{grid-template-columns:1fr}}
 footer{text-align:center;padding:28px 0 48px;border-top:1px solid var(--line);font:14px system-ui,sans-serif;color:var(--muted)}
 @media (max-width:1000px){.skills{grid-template-columns:1fr 1fr}}
 @media (max-width:700px){
@@ -87,7 +116,7 @@ nav .name{width:auto;margin-right:8px}
 <body>
 <nav><div class="wrap">
 <a class="name" href="#top">Bikom C. Singha</a>
-<a href="#about">About</a><a href="#research">Research</a><a href="#gallery">Gallery</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
+<a href="#about">About</a><a href="#research">Research</a><a href="#institutions">Institutions</a><a href="#gallery">Gallery</a><a href="#publications">Publications</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#awards">Awards</a><a href="#contact">Contact</a>
 </div></nav>
 
 <div class="hero" id="top">
@@ -141,9 +170,12 @@ nav .name{width:auto;margin-right:8px}
 
 <section id="research">
 <h2><small>Research</small>What I work on</h2>
-<ul class="chips">
-<li>Livestock health and welfare</li><li>Farm-animal physiology</li><li>One Health</li><li>Livestock virology</li><li>Zoonoses and wildlife disease</li><li>Antimicrobial resistance</li><li>Food safety</li><li>Veterinary epidemiology</li><li>Machine learning for health data</li>
-</ul>
+<div class="interests">
+<div class="icard"><div class="ico">🐐</div><h3>Livestock health and welfare</h3><p>Farm-animal medicine, physiology and welfare, with a focus on keeping young and vulnerable animals healthy on smallholder farms.</p><ul class="chips sm"><li>Farm animals</li><li>Physiology</li><li>Welfare</li></ul></div>
+<div class="icard"><div class="ico">🧬</div><h3>Viral diseases and molecular epidemiology</h3><p>Outbreak investigation and molecular diagnosis of livestock viruses such as PPR, and how they spread across farms and regions.</p><ul class="chips sm"><li>RT-PCR</li><li>ELISA</li><li>Phylogenetics</li></ul></div>
+<div class="icard"><div class="ico">🌍</div><h3>One Health, AMR and food safety</h3><p>Links between animal, human and environmental health, including antimicrobial use on farms, resistant bacteria and safe food from animals.</p><ul class="chips sm"><li>One Health</li><li>AMR</li><li>Zoonoses</li></ul></div>
+<div class="icard"><div class="ico">🏥</div><h3>Public health</h3><p>Disease surveillance and risk-factor epidemiology that protect communities, from zoonotic outbreaks to foodborne illness.</p><ul class="chips sm"><li>Epidemiology</li><li>Surveillance</li><li>Biostatistics</li></ul></div>
+</div>
 <div class="grid2" style="margin-top:22px">
 <div class="card">
 <span class="badge">M.Sc. thesis · graded A+</span>
@@ -163,6 +195,18 @@ nav .name{width:auto;margin-right:8px}
 <p>A study of PPRV F-gene sequences from five South Asian countries. My role: drafting, writing and proofreading the manuscript.</p>
 
 </div>
+</div>
+</section>
+
+<section id="institutions">
+<h2><small>Training and collaborations</small>Institutions I have worked with</h2>
+<div class="insts">
+<a class="inst" href="https://www.bau.edu.bd" target="_blank" rel="noopener"><span class="mono">BAU</span><span><b>Bangladesh Agricultural University</b><br><span class="meta">Mymensingh · M.Sc. Microbiology and graduate research</span></span></a>
+<a class="inst" href="https://www.hstu.ac.bd" target="_blank" rel="noopener"><span class="mono">HSTU</span><span><b>Hajee Mohammad Danesh Science and Technology University</b><br><span class="meta">Dinajpur · Doctor of Veterinary Medicine</span></span></a>
+<a class="inst" href="https://www.blri.gov.bd" target="_blank" rel="noopener"><span class="mono">BLRI</span><span><b>Bangladesh Livestock Research Institute</b><br><span class="meta">Savar, Dhaka · Research internship, PPR outbreak project</span></span></a>
+<a class="inst" href="https://www.dls.gov.bd" target="_blank" rel="noopener"><span class="mono">CDIL</span><span><b>Central Disease Investigation Laboratory</b><br><span class="meta">Dhaka · Research internship, diagnostics</span></span></a>
+<a class="inst" href="https://www.dls.gov.bd" target="_blank" rel="noopener"><span class="mono">LRI</span><span><b>Livestock Research Institute</b><br><span class="meta">Dhaka · Internship, vaccine production</span></span></a>
+<a class="inst" href="https://www.dls.gov.bd" target="_blank" rel="noopener"><span class="mono">CVH</span><span><b>Central Veterinary Hospital</b><br><span class="meta">Dhaka · Clinical internship</span></span></a>
 </div>
 </section>
 
@@ -227,23 +271,25 @@ nav .name{width:auto;margin-right:8px}
 
 <section id="awards">
 <h2><small>Beyond the lab</small>Awards, training and volunteering</h2>
-<div class="grid2">
-<div class="card"><h3>Scholarships and prizes</h3><ul>
-<li>Imdad-Sitara Khan Scholarship, SpaandanB (USA), 2015–2017</li>
-<li>Government merit scholarship, Junior School Certificate, 2012</li>
-<li>1st place, Anti-Corruption Quiz (YES / Transparency International Bangladesh), 2022</li>
-<li>1st place, Essay Writing, District Public Library, Thakurgaon, 2022</li>
-<li>Youth Parliament Member, Thakurgaon-2, 2021</li>
-</ul></div>
-<div class="card"><h3>Volunteering and training</h3><ul>
-<li>Executive Assistant, Bangladesh Red Crescent Society, 2022–2024</li>
-<li>Volunteer, Roar for Street Child, 2022–present</li>
-<li>Rover Scout, HSTU, 2019–2024</li>
-<li>Associate Member, IAAS, 2021–2024</li>
-<li>Member, Dinajpur Society for Prevention of Cruelty to Animals, 2019–2023</li>
-<li>TANUVAS Global Large Animal Sciences Webinar Series II (India), 2021</li>
-<li>31st and 32nd BSVER Annual Scientific Conferences, 2025–2026</li>
-</ul></div>
+<div class="awards">
+<div class="agroup gold"><h3><span>🏆</span>Scholarships and prizes</h3><div class="tiles">
+<div class="tile "><span class="tic">🎓</span><div><b>Imdad-Sitara Khan Scholarship</b><span class="tsub">SpaandanB (USA), merit and need-based</span></div><span class="yr">2015–17</span></div>
+<div class="tile "><span class="tic">🏅</span><div><b>Government merit scholarship</b><span class="tsub">Junior School Certificate</span></div><span class="yr">2012</span></div>
+<div class="tile "><span class="tic">🥇</span><div><b>1st place, Anti-Corruption Quiz</b><span class="tsub">YES / Transparency International Bangladesh</span></div><span class="yr">2022</span></div>
+<div class="tile "><span class="tic">🥇</span><div><b>1st place, Essay Writing</b><span class="tsub">District Public Library, Thakurgaon</span></div><span class="yr">2022</span></div>
+<div class="tile "><span class="tic">🏛️</span><div><b>Youth Parliament Member</b><span class="tsub">Thakurgaon-2</span></div><span class="yr">2021</span></div>
+</div></div>
+<div class="agroup teal"><h3><span>🤝</span>Volunteering and leadership</h3><div class="tiles">
+<div class="tile "><span class="tic">❤️</span><div><b>Executive Assistant</b><span class="tsub">Bangladesh Red Crescent Society</span></div><span class="yr">2022–24</span></div>
+<div class="tile "><span class="tic">🤝</span><div><b>Volunteer</b><span class="tsub">Roar for Street Child</span></div><span class="yr">2022–now</span></div>
+<div class="tile "><span class="tic">⛺</span><div><b>Rover Scout</b><span class="tsub">HSTU</span></div><span class="yr">2019–24</span></div>
+<div class="tile "><span class="tic">🌾</span><div><b>Associate Member</b><span class="tsub">IAAS</span></div><span class="yr">2021–24</span></div>
+<div class="tile "><span class="tic">🐾</span><div><b>Member</b><span class="tsub">Dinajpur Society for Prevention of Cruelty to Animals</span></div><span class="yr">2019–23</span></div>
+</div></div>
+<div class="agroup blue"><h3><span>📚</span>Training and conferences</h3><div class="tiles">
+<div class="tile "><span class="tic">🎤</span><div><b>31st and 32nd BSVER Annual Scientific Conferences</b><span class="tsub">Oral presentation at the 32nd, BAU</span></div><span class="yr">2025–26</span></div>
+<div class="tile "><span class="tic">💻</span><div><b>Global Large Animal Sciences Webinar Series II</b><span class="tsub">TANUVAS, India</span></div><span class="yr">2021</span></div>
+</div></div>
 </div>
 </section>
 
